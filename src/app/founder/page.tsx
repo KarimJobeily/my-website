@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const timelineVariants = {
@@ -15,8 +15,8 @@ const timelineVariants = {
   show: (i: number) => ({
     opacity: 1,
     x: 0,
-    transition: { delay: i * 0.2, duration: 0.6 }
-  })
+    transition: { delay: i * 0.2, duration: 0.6 },
+  }),
 };
 
 export default function FounderPage() {
@@ -31,17 +31,17 @@ export default function FounderPage() {
       </Head>
 
       <main className="min-h-screen bg-white text-blue-900">
-  {/* Hero Section */}
-  <section className="relative z-10 bg-gradient-to-br from-blue-900 to-blue-700 text-white px-6 py-28">
-    <motion.h1
-      className="mx-auto mb-4 max-w-3xl text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-center"
-      initial="hidden"
-      animate="show"
-      variants={fadeIn}
-    >
-      Meet Our Founder & President
-    </motion.h1>
-  </section>
+        {/* Hero Section */}
+        <section className="relative z-10 bg-gradient-to-br from-blue-900 to-blue-700 text-white px-6 py-28">
+          <motion.h1
+            className="mx-auto mb-4 max-w-3xl text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-center"
+            initial="hidden"
+            animate="show"
+            variants={fadeIn}
+          >
+            Meet Our Founder & President
+          </motion.h1>
+        </section>
 
         {/* Main content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-24">
@@ -55,16 +55,19 @@ export default function FounderPage() {
           >
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-blue-900 shadow-xl flex-shrink-0">
               <Image
-                src="/images/founder.png"
+                src="/images/founder.webp" // ✅ Use modern webp for smaller size
                 alt="Portrait of Moustapha Youssef Khaywa, Founder and President of LARC"
-                fill
-                style={{ objectFit: 'cover' }}
-                priority
+                width={224} // md:w-56 = 14rem = 224px
+                height={224}
+                className="rounded-full object-cover"
+                priority // ✅ Preload for faster LCP
               />
             </div>
 
             <div className="text-center md:text-left max-w-md">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-2 tracking-tight">Moustapha Youssef Khaywa</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-2 tracking-tight">
+                Moustapha Youssef Khaywa
+              </h2>
               <p className="italic font-medium text-blue-700">
                 President & Founder – Lebanese Association of Respiratory Care (LARC)
               </p>
@@ -76,20 +79,20 @@ export default function FounderPage() {
           {[
             {
               title: 'About the Founder',
-              text: `Moustapha Khaywa is a pioneering Lebanese respiratory therapy leader, educator, and advocate. As the founder and current president of LARC, he has been at the forefront of formalizing respiratory care in Lebanon—transforming it from an overlooked specialty into a nationally recognized field of critical importance.`
+              text: `Moustapha Khaywa is a pioneering Lebanese respiratory therapy leader, educator, and advocate. As the founder and current president of LARC, he has been at the forefront of formalizing respiratory care in Lebanon—transforming it from an overlooked specialty into a nationally recognized field of critical importance.`,
             },
             {
               title: 'Professional Roles',
-              text: `Mr. Khaywa currently serves as Respiratory Therapy Manager at Clemenceau Medical Center, Beirut. He was elected as Lebanon’s Governor at the International Council for Respiratory Care (ICRC), and holds the position of Vice President for the Middle East with the International Association of Non-Invasive Ventilation (ARCA). In 2025, he was awarded the title of International Fellow in Non-Invasive Mechanical Ventilation (FNIV) in recognition of his scientific and clinical contributions.`
+              text: `Mr. Khaywa currently serves as Respiratory Therapy Manager at Clemenceau Medical Center, Beirut. He was elected as Lebanon’s Governor at the International Council for Respiratory Care (ICRC), and holds the position of Vice President for the Middle East with the International Association of Non-Invasive Ventilation (ARCA). In 2025, he was awarded the title of International Fellow in Non-Invasive Mechanical Ventilation (FNIV) in recognition of his scientific and clinical contributions.`,
             },
             {
               title: 'Achievements',
-              text: `In 2023, Moustapha founded Lebanon’s first internationally endorsed Respiratory Therapy Certificate Program at Makassed University, supported by the ICRC and AARC. His vision continues through LARC, whose mission is to advocate, educate, and empower RT professionals, and to position respiratory care as a vital component of Lebanon’s healthcare system.`
+              text: `In 2023, Moustapha founded Lebanon’s first internationally endorsed Respiratory Therapy Certificate Program at Makassed University, supported by the ICRC and AARC. His vision continues through LARC, whose mission is to advocate, educate, and empower RT professionals, and to position respiratory care as a vital component of Lebanon’s healthcare system.`,
             },
             {
               title: 'Vision & Leadership',
-              text: `Moustapha combines clinical expertise with a deep commitment to healthcare equity, interprofessional collaboration, and sustainable policy reform. Under his leadership, LARC is building national alliances and international bridges to elevate respiratory care standards for all.`
-            }
+              text: `Moustapha combines clinical expertise with a deep commitment to healthcare equity, interprofessional collaboration, and sustainable policy reform. Under his leadership, LARC is building national alliances and international bridges to elevate respiratory care standards for all.`,
+            },
           ].map((section, i) => (
             <motion.section
               key={i}
@@ -98,8 +101,12 @@ export default function FounderPage() {
               viewport={{ once: true }}
               variants={fadeIn}
             >
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 tracking-wide">{section.title}</h3>
-              <p className="text-lg sm:text-xl leading-relaxed text-blue-800">{section.text}</p>
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 tracking-wide">
+                {section.title}
+              </h3>
+              <p className="text-lg sm:text-xl leading-relaxed text-blue-800">
+                {section.text}
+              </p>
             </motion.section>
           ))}
 
@@ -113,18 +120,18 @@ export default function FounderPage() {
                 {
                   year: '2023',
                   title: 'Founded Lebanon’s first internationally endorsed Respiratory Therapy Certificate Program',
-                  description: 'At Makassed University, supported by the ICRC and AARC.'
+                  description: 'At Makassed University, supported by the ICRC and AARC.',
                 },
                 {
                   year: '2025',
                   title: 'Awarded International Fellow in Non-Invasive Mechanical Ventilation (FNIV)',
-                  description: 'Recognized for scientific and clinical contributions to respiratory therapy.'
+                  description: 'Recognized for scientific and clinical contributions to respiratory therapy.',
                 },
                 {
                   year: 'Ongoing',
                   title: 'Leading LARC’s mission to advocate, educate, and empower respiratory therapy professionals in Lebanon',
-                  description: 'Building national alliances and international collaborations to elevate respiratory care standards.'
-                }
+                  description: 'Building national alliances and international collaborations to elevate respiratory care standards.',
+                },
               ].map((item, i) => (
                 <motion.div
                   key={i}
