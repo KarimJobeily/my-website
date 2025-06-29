@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import { createClient } from '@supabase/supabase-js';
 
-// Create Supabase client (or import it if you have it in a separate file)
 const supabase = createClient(
   process.env.SUPABASE_URL || '',
-  process.env.SUPABASE_SERVICE_ROLE_KEY || '' // use service role key for server side secure access
+  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 );
 
 interface Event {
@@ -17,6 +16,13 @@ interface Event {
   image: string;
   description: string;
   registerLink: string;
+}
+
+// Define PageProps interface to satisfy Next.js typing requirements
+interface PageProps {
+  params: {
+    slug: string;
+  };
 }
 
 async function getEventBySlug(slug: string): Promise<Event | null> {
@@ -33,11 +39,7 @@ async function getEventBySlug(slug: string): Promise<Event | null> {
   return data;
 }
 
-export default async function EventDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function EventDetailPage({ params }: PageProps) {
   const event = await getEventBySlug(params.slug);
 
   if (!event) {
