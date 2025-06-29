@@ -79,12 +79,13 @@ export default function HomePage() {
         >
           Join Us
         </a>
-        <a
-          href="/contact"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-full shadow-md transform hover:scale-105 transition-all duration-300"
-        >
-          Contact
-        </a>
+    <a
+  href="mailto:info@lebanesearc.org"
+  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-full shadow-md transform hover:scale-105 transition-all duration-300"
+>
+  Contact
+</a>
+
         <a
           href="/founder"
           className="bg-white text-blue-700 hover:bg-gray-100 font-semibold px-6 py-3 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 border border-blue-700"

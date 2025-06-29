@@ -30,24 +30,53 @@ export default function SiteHeader() {
             <img
               src="/images/logonob.png"
               alt="LARC Logo"
-              className="h-12 w-auto"
+              className="h-12 w-auto object-contain"
               draggable={false}
             />
             <span>LARC</span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="font-medium text-gray-700 hover:text-blue-600 transition-colors">Home</Link>
-            <Link href="/about" className="font-medium text-gray-700 hover:text-blue-600 transition-colors">About Us</Link>
-            <Link href="/membership" className="font-medium text-gray-700 hover:text-blue-600 transition-colors">Membership</Link>
-            <Link href="/events" className="font-medium text-gray-700 hover:text-blue-600 transition-colors">Events</Link>
-            <Link href="/contact" className="font-medium text-gray-700 hover:text-blue-600 transition-colors">Contact</Link>
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Primary navigation">
+            <Link
+              href="/"
+              className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              About Us
+            </Link>
+            <Link
+              href="/membership"
+              className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Membership
+            </Link>
+            <Link
+              href="/events"
+              className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Events
+            </Link>
+            <a
+              href="mailto:info@lebanesearc.org"
+              className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              aria-label="Contact via email"
+            >
+              Contact
+            </a>
           </nav>
 
           {/* CTA (Desktop) */}
           <div className="hidden md:block">
-            <Link href="/join" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-colors">
+            <Link
+              href="/join"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-colors"
+            >
               Join Us
             </Link>
           </div>
@@ -55,7 +84,9 @@ export default function SiteHeader() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
             className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <svg
@@ -77,15 +108,48 @@ export default function SiteHeader() {
         {/* Mobile Menu */}
         <div
           ref={menuRef}
+          id="mobile-menu"
           className="md:hidden overflow-hidden bg-white transition-all duration-400 ease-in-out border-t border-gray-200"
           style={{ maxHeight, opacity: isMenuOpen ? 1 : 0 }}
+          aria-hidden={!isMenuOpen}
         >
-          <nav className="px-4 pt-4 pb-6 space-y-4">
-            <Link href="/" className="block text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/about" className="block text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>About Us</Link>
-            <Link href="/membership" className="block text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>Membership</Link>
-            <Link href="/events" className="block text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>Events</Link>
-            <Link href="/contact" className="block text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          <nav className="px-4 pt-4 pb-6 space-y-4" aria-label="Mobile navigation">
+            <Link
+              href="/"
+              className="block text-gray-800 hover:text-blue-600 text-base font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="block text-gray-800 hover:text-blue-600 text-base font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About Us
+            </Link>
+            <Link
+              href="/membership"
+              className="block text-gray-800 hover:text-blue-600 text-base font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Membership
+            </Link>
+            <Link
+              href="/events"
+              className="block text-gray-800 hover:text-blue-600 text-base font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Events
+            </Link>
+            <a
+              href="mailto:info@lebanesearc.org"
+              className="block text-gray-800 hover:text-blue-600 text-base font-medium"
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Contact via email"
+            >
+              Contact
+            </a>
             <Link
               href="/join"
               className="block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full text-center transition-colors mt-2"
@@ -99,4 +163,3 @@ export default function SiteHeader() {
     </header>
   );
 }
-

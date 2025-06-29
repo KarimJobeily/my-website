@@ -31,7 +31,8 @@ export default function Foooter() {
               { href: '/about', label: 'About Us' },
               { href: '/membership', label: 'Membership' },
               { href: '/events', label: 'Events' },
-              { href: '/contact', label: 'Contact' }
+             { href: 'mailto:info@lebanesearc.org', label: 'Contact' }
+
             ].map(({ href, label }) => (
               <li key={href}>
                 <Link
