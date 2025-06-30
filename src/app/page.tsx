@@ -239,18 +239,18 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Dr. Layla Farhat",
+                name: "Dr. Wael Jaroosh",
                 role: "Pulmonologist | Beirut",
                 quote: "LARC has been instrumental in advancing respiratory care standards in Lebanon.",
               },
               {
-                name: "Ali Kassab",
-                role: "Medical Student | Intern",
+                name: "Israa Kharoub",
+                role: "Volunteer",
                 quote: "Volunteering here gave me real-world experience and purpose.",
               },
               {
-                name: "Sandra Zaytoun",
-                role: "Supporter | Donor",
+                name: "Mohammad Daibs",
+                role: "Respiratory Therapist.",
                 quote: "I believe in their mission. Every small contribution makes a big difference.",
               },
             ].map((person, idx) => (

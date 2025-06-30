@@ -14,16 +14,13 @@ export default function MembershipPage() {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  const membershipFormURL =
-    'https://forms.gle/SZqMZ2mNDGFhAcFU6';
+  const membershipFormURL = 'https://forms.gle/SZqMZ2mNDGFhAcFU6';
 
   return (
     <div className="font-sans text-gray-800 bg-white scroll-smooth">
       {/* Membership Hero Section */}
       <section className="relative overflow-hidden">
-        {/* Background Gradient */}
         <div className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-28 px-6 relative z-10 text-center">
-          {/* Optional background pattern */}
           <div className="absolute inset-0 opacity-10 bg-[url('/images/pattern-wave.svg')] bg-cover z-0"></div>
 
           <div className="max-w-3xl mx-auto relative z-10 animate-fade-in">
@@ -32,9 +29,6 @@ export default function MembershipPage() {
             </h1>
             <p className="text-lg md:text-xl mb-6 opacity-90">
               Be part of a growing movement to advance respiratory care in Lebanon.
-            </p>
-            <p className="text-lg md:text-xl mb-6 font-semibold">
-              Annual Membership Fee: <span className="text-green-400">$100 USD</span>
             </p>
             <Link
               href={membershipFormURL}
@@ -66,18 +60,17 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* Clear Member Journey Timeline */}
+      {/* Member Journey Timeline */}
       <section className="px-6 py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Your Membership Journey</h2>
           <p className="mb-10 text-lg text-gray-700">
-            Becoming a member is simple — and just $100/year.
+            Becoming a member is simple and rewarding.
           </p>
           <ol className="space-y-6 text-left sm:text-lg">
             <li><strong>1.</strong> Complete the online application</li>
             <li><strong>2.</strong> Submit your ID and credentials</li>
-            <li><strong>3.</strong> Pay the annual fee of $100 USD</li>
-            <li><strong>4.</strong> Start enjoying your exclusive member benefits</li>
+            <li><strong>3.</strong> Enjoy your membership benefits</li>
           </ol>
         </div>
       </section>
@@ -89,7 +82,7 @@ export default function MembershipPage() {
             Why Become a Member?
           </h2>
           <p className="text-center mb-10 text-lg text-gray-700">
-            For just $100/year, unlock these exclusive benefits:
+            Your membership supports meaningful progress in respiratory care. Here’s what you gain:
           </p>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
             {[
@@ -121,7 +114,7 @@ export default function MembershipPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Open to Everyone in Respiratory Care</h2>
           <p className="mb-8 text-lg text-gray-700">
-            Membership is open to individuals and institutions.
+            Membership is open to both individuals and institutions.
           </p>
           <ul className="list-disc list-inside space-y-3 text-left text-gray-700 text-base sm:text-lg">
             <li>Respiratory Therapists (Practicing or Licensed)</li>
@@ -132,12 +125,12 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* Final Call to Action */}
+      {/* Final CTA */}
       <section className="py-20 bg-blue-700 text-white text-center px-6">
         <div className="max-w-3xl mx-auto">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Make a Difference?</h3>
           <p className="text-lg mb-8 max-w-xl mx-auto">
-            For just $100/year, join us in building a healthier Lebanon — together, we give breath and hope through education, advocacy, and care.
+            Join us in building a healthier Lebanon — together, we give breath and hope through education, advocacy, and care.
           </p>
           <Link
             href={membershipFormURL}
@@ -150,7 +143,7 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top */}
       {showTopBtn && (
         <button
           onClick={scrollToTop}
