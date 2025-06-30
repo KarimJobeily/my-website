@@ -74,7 +74,7 @@ export default function SiteHeader() {
           {/* CTA (Desktop) */}
           <div className="hidden md:block">
             <Link
-              href="/join"
+              href= "/membership"
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-colors"
             >
               Join Us
@@ -151,7 +151,7 @@ export default function SiteHeader() {
               Contact
             </a>
             <Link
-              href="/join"
+              href="/membership"
               className="block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full text-center transition-colors mt-2"
               onClick={() => setIsMenuOpen(false)}
             >

@@ -72,7 +72,7 @@ export default function HomePage() {
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
         <a
-          href="https://docs.google.com/forms/d/e/your-join-form-id/viewform"
+          href="/membership"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transform hover:scale-105 transition-all duration-300"
@@ -280,7 +280,7 @@ export default function HomePage() {
       Together, we give breath and hope to thousands through education, advocacy, and care.
     </p>
     <Link
-      href="/join"
+      href="/membership"
       className="inline-block bg-white text-blue-700 hover:bg-blue-50 font-semibold px-6 py-3 rounded-full shadow-md transform hover:scale-105 transition-all duration-300"
     >
       Join Us
