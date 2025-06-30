@@ -233,39 +233,47 @@ export default function HomePage() {
         👥 Member Testimonials / Spotlights
         - Humanize your impact
       */}
-      <section className="py-20 bg-white px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Member Spotlight</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Dr. Wael Jaroosh",
-                role: "Pulmonologist | Beirut",
-                quote: "LARC has been instrumental in advancing respiratory care standards in Lebanon.",
-              },
-              {
-                name: "Israa Kharoub",
-                role: "Volunteer",
-                quote: "Volunteering here gave me real-world experience and purpose.",
-              },
-              {
-                name: "Mohammad Daibs",
-                role: "Respiratory Therapist.",
-                quote: "I believe in their mission. Every small contribution makes a big difference.",
-              },
-            ].map((person, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md border border-gray-100 transition-shadow"
-              >
-                <p className="italic text-gray-600 mb-4">{`"${person.quote}"`}</p>
-                <h4 className="font-semibold text-blue-700">{person.name}</h4>
-                <p className="text-sm text-gray-500">{person.role}</p>
-              </div>
-            ))}
+    <section className="py-12 bg-white px-6">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+      Member Spotlight
+    </h2>
+    <div className="grid md:grid-cols-3 gap-5">
+      {[
+        {
+          name: "Dr. Wael Jarouche",
+          role: "Pulmonologist | Beirut",
+          quote: "LARC has been instrumental in advancing respiratory care standards in Lebanon.",
+        },
+        {
+          name: "Israa Kharoub",
+          role: "Volunteer",
+          quote: "Volunteering here gave me real-world experience and purpose.",
+        },
+        {
+          name: "Mohammad Daibs",
+          role: "Respiratory Therapist",
+          quote: "I believe in their mission. Every small contribution makes a big difference.",
+        },
+      ].map((person, idx) => (
+        <div
+          key={idx}
+          className="bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md border border-gray-100 transition-shadow flex flex-col justify-between"
+          style={{ minHeight: "200px" }}
+        >
+          <p className="italic text-gray-700 mb-3 text-center flex-grow leading-snug">
+            {`"${person.quote}"`}
+          </p>
+          <div className="text-center">
+            <h4 className="font-semibold text-blue-700 text-base">{person.name}</h4>
+            <p className="text-sm text-gray-500">{person.role}</p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* 
         🚀 Call to Action (CTA)
