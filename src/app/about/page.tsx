@@ -1,11 +1,17 @@
 'use client';
-
+import SEO from '@/components/SEO';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
 export default function AboutPage() {
+    <SEO
+        title="About - Lebanese Association for Respiratory Care"
+        description="About the Lebanese Association for Respiratory Care and our mission."
+        canonical="https://lebanesearc.org/about"
+        ogImage="https://lebanesearc.org/images/og-about.png" // Optional
+      />
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   useEffect(() => {

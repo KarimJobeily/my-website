@@ -1,9 +1,15 @@
 'use client';
-
+import SEO from '@/components/SEO';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function MembershipPage() {
+  <SEO
+        title="Membership - Lebanese Association for Respiratory Care"
+        description="Become a member of the Lebanese Association for Respiratory Care and enjoy exclusive benefits."
+        canonical="https://lebanesearc.org/membership"
+        ogImage="https://lebanesearc.org/images/og-membership.png" // Optional
+      />
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   useEffect(() => {

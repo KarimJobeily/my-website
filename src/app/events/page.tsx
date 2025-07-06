@@ -1,5 +1,5 @@
 'use client';
-
+import SEO from '@/components/SEO';
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 
 // Event type definition
@@ -17,6 +17,12 @@ interface Event {
 const EVENTS_PER_PAGE = 20;
 
 export default function EventsPage() {
+    <SEO
+        title="Events - Lebanese Association for Respiratory Care"
+        description="Upcoming events and workshops by the Lebanese Association for Respiratory Care."
+        canonical="https://lebanesearc.org/events"
+        ogImage="https://lebanesearc.org/images/og-events.png" // Optional
+      />
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

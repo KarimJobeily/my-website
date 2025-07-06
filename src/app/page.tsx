@@ -1,10 +1,40 @@
 // app/page.tsx - LARC Home Page (Fully Responsive & Professional)
 'use client';
 
+import SEO from '@/components/SEO'; // adjust path if needed
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function HomePage() {
+    <SEO
+        title="Lebanese Association for Respiratory Care (LARC)"
+        description="LARC – The Lebanese ARC is dedicated to advancing respiratory care in Lebanon. Learn more about respiratory therapy, events, membership, and more."
+        canonical="https://lebanesearc.org/"
+        ogImage="https://lebanesearc.org/images/logo.jpg"
+        additionalMeta={
+          <>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "Organization",
+                  name: "Lebanese Association for Respiratory Care",
+                  alternateName: "LARC",
+                  url: "https://lebanesearc.org",
+                  logo: "https://lebanesearc.org/images/logo.jpg",
+                  sameAs: [
+                    "https://www.facebook.com/profile.php?id=61577880610472",
+                    "https://www.instagram.com/lebanesearc?igsh=MWl0ZnhodmdxdDdxMw==",
+                    "https://www.linkedin.com/company/107764394/"
+                  ]
+                })
+              }}
+            />
+          </>
+        }
+      />
+   
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   // Show scroll-to-top button after scrolling down
@@ -20,8 +50,10 @@ export default function HomePage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
 
   return (
+    
     <>
       {/* 
         🎬 Hero Section

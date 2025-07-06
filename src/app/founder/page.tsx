@@ -1,5 +1,5 @@
 'use client';
-
+import SEO from '@/components/SEO';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -20,6 +20,12 @@ const timelineVariants = {
 };
 
 export default function FounderPage() {
+  <SEO
+        title="Meet Our Founder - Lebanese Association for Respiratory Care"
+        description="Learn about Moustapha Youssef Khaywa, Founder and President of the Lebanese Association for Respiratory Care."
+        canonical="https://lebanesearc.org/founder"
+        ogImage="https://lebanesearc.org/images/og-founder.png" // Optional
+      />
   return (
     <>
       <Head>
