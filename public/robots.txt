@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
 # Host
 Host: https://lebanesearc.org

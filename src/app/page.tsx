@@ -26,7 +26,7 @@ export default function HomePage() {
                   sameAs: [
                     "https://www.facebook.com/profile.php?id=61577880610472",
                     "https://www.instagram.com/lebanesearc?igsh=MWl0ZnhodmdxdDdxMw==",
-                    "https://www.linkedin.com/company/107764394/"
+                    "https://www.linkedin.com/company/lebanese-association-of-respiratory-care/"
                   ]
                 })
               }}

@@ -1,30 +1,27 @@
 /** @type {import('next-sitemap').IConfig} */
 
-// Placeholder function to fetch latest update date for dynamic content
-// Replace this with real data fetching logic from your CMS or DB
 async function getLatestUpdateDate() {
-  // Example static date; replace with your logic
   return new Date().toISOString();
 }
 
 module.exports = {
   siteUrl: 'https://lebanesearc.org',
   generateRobotsTxt: true,
+  generateIndexSitemap: false, // 🔥 important: we're generating single sitemap
 
   robotsTxtOptions: {
     policies: [
       {
         userAgent: '*',
         allow: '/',
-        crawlDelay: 1, // 1 second delay between requests to reduce server load
+        crawlDelay: 1,
       },
     ],
-    additionalSitemaps: ['https://lebanesearc.org/sitemap.xml'],
   },
 
   sitemapSize: 7000,
-  changefreq: 'weekly', // Default frequency for all pages unless overridden
-  priority: 0.5,        // Default priority for pages unless overridden
+  changefreq: 'weekly',
+  priority: 0.5,
 
   additionalPaths: async () => {
     const latestEventUpdate = await getLatestUpdateDate();

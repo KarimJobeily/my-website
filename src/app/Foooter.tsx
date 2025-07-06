@@ -55,9 +55,9 @@ export default function Foooter() {
             </h3>
             <ul className="space-y-2 text-gray-300 text-sm">
               {[
-                { href: 'https://facebook.com/larc', label: 'Facebook', icon: FaFacebookF },
-                { href: 'https://instagram.com/larc', label: 'Instagram', icon: FaInstagram },
-                { href: 'https://linkedin.com/larc', label: 'LinkedIn', icon: FaLinkedinIn }
+                { href: 'https://www.facebook.com/profile.php?id=61577880610472', label: 'Facebook', icon: FaFacebookF },
+                { href: 'https://instagram.com/lebanesearc', label: 'Instagram', icon: FaInstagram },
+                { href: 'https://www.linkedin.com/company/lebanese-association-of-respiratory-care/', label: 'LinkedIn', icon: FaLinkedinIn }
               ].map(({ href, label, icon: Icon }) => (
                 <li key={href}>
                   <a
