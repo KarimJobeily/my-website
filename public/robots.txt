@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://lebanesearc.org
+
+# Sitemaps
+Sitemap: https://lebanesearc.org/sitemap.xml
