@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
 
-// ✅ Partner type
+// Partner type
 interface Partner {
   id: number;
   slug: string;
@@ -16,13 +16,13 @@ interface Partner {
   phone?: string;
 }
 
-// ✅ Supabase client
+// Initialize Supabase client
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL || '',
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 );
 
-// ✅ Fetch single partner by slug
+// Fetch partner by slug
 async function getPartnerBySlug(slug: string): Promise<Partner | null> {
   const { data, error } = await supabase
     .from('partners')
@@ -34,24 +34,20 @@ async function getPartnerBySlug(slug: string): Promise<Partner | null> {
     console.error('Partner fetch error:', error?.message);
     return null;
   }
-
   return data;
 }
 
-// ✅ Generate static params for ISR/SSG
+// Generate static params for SSG/ISR
 export async function generateStaticParams() {
   const { data, error } = await supabase.from('partners').select('slug');
-  if (error || !data) {
-    console.error('generateStaticParams error:', error?.message);
-    return [];
-  }
-
+  if (error || !data) return [];
   return data.map((partner) => ({ slug: partner.slug }));
 }
 
-// ✅ Generate metadata
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const partner = await getPartnerBySlug(params.slug);
+// Generate metadata for SEO
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const partner = await getPartnerBySlug(slug);
 
   if (!partner) {
     return { title: 'Partner Not Found' };
@@ -70,9 +66,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-// ✅ Partner Detail Page
-export default async function PartnerDetailPage({ params }: { params: { slug: string } }) {
-  const partner = await getPartnerBySlug(params.slug);
+// Page component
+export default async function PartnerDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const partner = await getPartnerBySlug(slug);
 
   if (!partner) notFound();
 
@@ -106,7 +103,7 @@ export default async function PartnerDetailPage({ params }: { params: { slug: st
       </h1>
       <p className="text-center text-gray-600 italic mb-8">{partner.type}</p>
 
-      {/* Website CTA */}
+      {/* Website Button */}
       {websiteUrl && (
         <div className="text-center mb-12">
           <a
@@ -165,7 +162,7 @@ export default async function PartnerDetailPage({ params }: { params: { slug: st
         </section>
       )}
 
-      {/* If empty */}
+      {/* Fallback if no description/contact */}
       {!partner.description && !hasContact && (
         <p className="text-center text-gray-500">
           No additional information available.
