@@ -62,6 +62,12 @@ export default function SiteHeader() {
             >
               Events
             </Link>
+            <Link
+              href="/partners"
+              className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Partners
+            </Link>
             <a
               href="mailto:info@lebanesearc.org"
               className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
@@ -74,7 +80,7 @@ export default function SiteHeader() {
           {/* CTA (Desktop) */}
           <div className="hidden md:block">
             <Link
-              href= "/membership"
+              href="/membership"
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition-colors"
             >
               Join Us
@@ -141,6 +147,13 @@ export default function SiteHeader() {
               onClick={() => setIsMenuOpen(false)}
             >
               Events
+            </Link>
+            <Link
+              href="/partners"
+              className="block text-gray-800 hover:text-blue-600 text-base font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Partners
             </Link>
             <a
               href="mailto:info@lebanesearc.org"
