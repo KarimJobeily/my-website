@@ -89,7 +89,7 @@ export default function FounderPage() {
             },
             {
               title: 'Professional Roles',
-              text: `Mr. Khaywa currently serves as Respiratory Therapy Manager at Clemenceau Medical Center, Beirut. He was elected as Lebanon’s Governor at the International Council for Respiratory Care (ICRC), and holds the position of Vice President for the Middle East with the International Association of Non-Invasive Ventilation . In 2025, he was awarded the title of International Fellow in Non-Invasive Mechanical Ventilation (FNIV) in recognition of his scientific and clinical contributions.`,
+              text: `Mr. Khaywa was elected as Lebanon’s Governor at the International Council for Respiratory Care (ICRC), and holds the position of Vice President for the Middle East with the International Association of Non-Invasive Ventilation . In 2025, he was awarded the title of International Fellow in Non-Invasive Mechanical Ventilation (FNIV) in recognition of his scientific and clinical contributions.`,
             },
             {
               title: 'Achievements',
