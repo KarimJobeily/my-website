@@ -8,7 +8,6 @@ export default function Foooter() {
       role="contentinfo"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-
         {/* LARC Info */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold tracking-widest uppercase text-white flex items-center gap-2 border-b border-cyan-500 pb-1">
@@ -31,8 +30,7 @@ export default function Foooter() {
               { href: '/about', label: 'About Us' },
               { href: '/membership', label: 'Membership' },
               { href: '/events', label: 'Events' },
-             { href: 'mailto:info@lebanesearc.org', label: 'Contact' }
-
+              { href: 'mailto:info@lebanesearc.org', label: 'Contact' }
             ].map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -55,9 +53,21 @@ export default function Foooter() {
             </h3>
             <ul className="space-y-2 text-gray-300 text-sm">
               {[
-                { href: 'https://www.facebook.com/profile.php?id=61577880610472', label: 'Facebook', icon: FaFacebookF },
-                { href: 'https://instagram.com/lebanesearc', label: 'Instagram', icon: FaInstagram },
-                { href: 'https://www.linkedin.com/company/lebanese-association-of-respiratory-care/', label: 'LinkedIn', icon: FaLinkedinIn }
+                {
+                  href: 'https://www.facebook.com/profile.php?id=61577880610472',
+                  label: 'Facebook',
+                  icon: FaFacebookF
+                },
+                {
+                  href: 'https://instagram.com/lebanesearc',
+                  label: 'Instagram',
+                  icon: FaInstagram
+                },
+                {
+                  href: 'https://www.linkedin.com/company/lebanese-association-of-respiratory-care/',
+                  label: 'LinkedIn',
+                  icon: FaLinkedinIn
+                }
               ].map(({ href, label, icon: Icon }) => (
                 <li key={href}>
                   <a
@@ -87,6 +97,17 @@ export default function Foooter() {
                 className="hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-300 rounded"
               >
                 info@lebanesearc.org
+              </a>
+            </p>
+            <p>
+              Phone:{' '}
+              <a
+                href="https://wa.me/96178751626"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-300 rounded"
+              >
+                +961 78 751 626 (WhatsApp)
               </a>
             </p>
           </address>
