@@ -95,7 +95,7 @@ export default function HomePageClient({ images }: HomePageClientProps) {
       <section role="region" aria-labelledby="hero-title" className="relative overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-20 z-0"></div>
         <div className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-28 px-4 sm:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center animate-fadeInUp">
             <div className="flex justify-center mb-6">
               <div className="bg-white rounded-full p-2 shadow-lg h-28 w-28 md:h-32 md:w-32 flex items-center justify-center overflow-hidden">
                 <Image
@@ -217,47 +217,43 @@ export default function HomePageClient({ images }: HomePageClientProps) {
         </div>
       </section>
 
-      {/* Slider */}
+      {/* Image Slider */}
       {images.length > 0 && (
         <section className="py-10 bg-white px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            {images.length > 1 && (
-              <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-6 text-center"></h2>
-            )}
             <div ref={sliderRef} className="keen-slider rounded-xl">
-            {images.map((img, idx) => (
-  <div
-    key={img.id}
-    className="keen-slider__slide flex justify-center cursor-pointer"
-    onClick={() => setFullscreen(img.link)}
-  >
-    <div
-      className="relative w-full flex items-center justify-center bg-white rounded-xl overflow-hidden border-2 border-blue-800 shadow-md transition-all duration-500 hover:scale-105 px-3 py-4"
-      style={{
-        minHeight: '320px',
-        maxHeight: '80vh',
-        backgroundColor: '#f9fafb',
-      }}
-    >
-      <Image
-        src={img.link}
-        alt={`Slide ${idx + 1}`}
-        width={1200}
-        height={800}
-        priority={idx === 0}
-        className="object-contain transition-opacity duration-500"
-        style={{
-          maxHeight: '100%',
-          maxWidth: '100%',
-          height: 'auto',
-          width: 'auto',
-          display: 'block',
-        }}
-      />
-    </div>
-  </div>
-))}
-
+              {images.map((img, idx) => (
+                <div
+                  key={img.id}
+                  className="keen-slider__slide flex justify-center cursor-pointer"
+                  onClick={() => setFullscreen(img.link)}
+                >
+                  <div
+                    className="relative w-full flex items-center justify-center bg-white rounded-xl overflow-hidden border-2 border-blue-800 shadow-md transition-all duration-500 hover:scale-105 px-3 py-4"
+                    style={{
+                      minHeight: '320px',
+                      maxHeight: '80vh',
+                      backgroundColor: '#f9fafb',
+                    }}
+                  >
+                    <Image
+                      src={img.link}
+                      alt={`Slide ${idx + 1}`}
+                      width={1200}
+                      height={800}
+                      priority={idx === 0}
+                      className="object-contain transition-opacity duration-500"
+                      style={{
+                        maxHeight: '100%',
+                        maxWidth: '100%',
+                        height: 'auto',
+                        width: 'auto',
+                        display: 'block',
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
             {images.length > 1 && (
               <div className="flex justify-center mt-4 gap-2">
@@ -319,7 +315,7 @@ export default function HomePageClient({ images }: HomePageClientProps) {
                 className="bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md border border-gray-100 transition-shadow flex flex-col justify-between"
                 style={{ minHeight: '200px' }}
               >
-                <p className="italic text-gray-700 mb-3 text-center flex-grow leading-snug">{`"${person.quote}"`}</p>
+                <p className="italic text-gray-700 mb-3 text-center flex-grow leading-snug">{person.quote}</p>
                 <div className="text-center">
                   <h4 className="font-semibold text-blue-700 text-base">{person.name}</h4>
                   <p className="text-sm text-gray-500">{person.role}</p>
@@ -376,6 +372,7 @@ export default function HomePageClient({ images }: HomePageClientProps) {
           animation-duration: 0.7s;
           animation-fill-mode: forwards;
         }
+
         @keyframes pulseSlow {
           0%, 100% {
             transform: scale(1);

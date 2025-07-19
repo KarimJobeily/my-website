@@ -42,7 +42,7 @@ export default function MembershipPage() {
               rel="noopener noreferrer"
               className="inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow-md transform hover:scale-105 hover:bg-gray-100 transition-all duration-300"
             >
-              Join Now for $100/year
+              Become a member
             </Link>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function MembershipPage() {
             rel="noopener noreferrer"
             className="inline-block bg-white text-blue-700 hover:bg-blue-50 font-semibold px-6 py-3 rounded-full shadow-md transform hover:scale-105 transition-all duration-300"
           >
-            Join Now for $100/year
+            Become a member
           </Link>
         </div>
       </section>
