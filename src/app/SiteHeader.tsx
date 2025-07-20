@@ -11,7 +11,7 @@ import {
   Users,
   UserRound,
   CalendarDays,
-  Handshake
+  Handshake,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -43,12 +43,36 @@ export default function SiteHeader() {
     }
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setShowContactModal(false);
+      }
+    };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const modal = document.getElementById('contact-modal');
+      if (modal && !modal.contains(e.target as Node)) {
+        setShowContactModal(false);
+      }
+    };
+
+    if (showContactModal) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showContactModal]);
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Row */}
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold text-blue-700 flex items-center space-x-2">
+          <Link href="/" className="text-xl font-bold text-blue-700 flex items-center space-x-2 cursor-pointer">
             <img
               src="/images/logonob.png"
               alt="LARC Logo"
@@ -58,48 +82,45 @@ export default function SiteHeader() {
             <span>LARC</span>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8" aria-label="Primary navigation">
-            <Link href="/" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <Link href="/" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors cursor-pointer">
               <Home size={18} /> Home
             </Link>
-            <Link href="/about" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <Link href="/about" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors cursor-pointer">
               <UserRound size={18} /> About Us
             </Link>
-            <Link href="/membership" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <Link href="/membership" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors cursor-pointer">
               <Users size={18} /> Membership
             </Link>
-            <Link href="/events" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <Link href="/events" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors cursor-pointer">
               <CalendarDays size={18} /> Events
             </Link>
-            <Link href="/partners" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <Link href="/partners" className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors cursor-pointer">
               <Handshake size={18} /> Partners
             </Link>
             <button
               onClick={() => setShowContactModal(true)}
-              className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               <Mail size={18} /> Contact
             </button>
           </nav>
 
-          {/* CTA (Desktop) */}
           <div className="hidden md:block">
             <Link
               href="/membership"
-              className="bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-transform duration-300 text-white font-semibold py-2 px-4 rounded-full"
+              className="bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-transform duration-300 text-white font-semibold py-2 px-4 rounded-full cursor-pointer"
             >
               Join Us
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
           >
             <svg
               className="w-6 h-6 text-gray-800"
@@ -117,7 +138,6 @@ export default function SiteHeader() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         <div
           ref={menuRef}
           id="mobile-menu"
@@ -126,19 +146,19 @@ export default function SiteHeader() {
           aria-hidden={!isMenuOpen}
         >
           <nav className="px-4 pt-4 pb-6 space-y-4" aria-label="Mobile navigation">
-            <Link href="/" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium cursor-pointer" onClick={() => setIsMenuOpen(false)}>
               <Home size={18} /> Home
             </Link>
-            <Link href="/about" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/about" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium cursor-pointer" onClick={() => setIsMenuOpen(false)}>
               <UserRound size={18} /> About Us
             </Link>
-            <Link href="/membership" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/membership" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium cursor-pointer" onClick={() => setIsMenuOpen(false)}>
               <Users size={18} /> Membership
             </Link>
-            <Link href="/events" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/events" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium cursor-pointer" onClick={() => setIsMenuOpen(false)}>
               <CalendarDays size={18} /> Events
             </Link>
-            <Link href="/partners" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/partners" className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium cursor-pointer" onClick={() => setIsMenuOpen(false)}>
               <Handshake size={18} /> Partners
             </Link>
             <button
@@ -146,11 +166,11 @@ export default function SiteHeader() {
                 setShowContactModal(true);
                 setIsMenuOpen(false);
               }}
-              className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium"
+              className="flex items-center gap-2 text-gray-800 hover:text-blue-600 text-base font-medium cursor-pointer"
             >
               <Mail size={18} /> Contact
             </button>
-            <Link href="/membership" className="block bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-transform duration-300 text-white font-semibold py-2 px-4 rounded-full text-center mt-2" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/membership" className="block bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-transform duration-300 text-white font-semibold py-2 px-4 rounded-full text-center mt-2 cursor-pointer" onClick={() => setIsMenuOpen(false)}>
               Join Us
             </Link>
           </nav>
@@ -164,9 +184,10 @@ export default function SiteHeader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-50 flex items-center justify-center px-4"
+            className="fixed inset-0 backdrop-blur-md bg-transparent z-50 flex items-center justify-center px-4"
           >
             <motion.div
+              id="contact-modal"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 50, opacity: 0 }}
@@ -175,17 +196,16 @@ export default function SiteHeader() {
             >
               <button
                 onClick={() => setShowContactModal(false)}
-                className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl"
+                className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl cursor-pointer"
                 aria-label="Close modal"
               >
                 <X size={24} />
               </button>
               <h2 className="text-xl font-semibold mb-4 text-blue-700">Get in Touch</h2>
               <div className="space-y-4 text-sm">
-                {/* Phone Button Always Visible with Hover Animation */}
                 <a
                   href="tel:+96178751626"
-                  className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white py-2 px-4 rounded-full transition-all duration-300"
+                  className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white py-2 px-4 rounded-full transition-all duration-300 cursor-pointer"
                 >
                   <Phone size={20} className="group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" />
                   Call Us
@@ -195,7 +215,7 @@ export default function SiteHeader() {
                   href="https://wa.me/96178751626"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 hover:scale-105 text-white py-2 px-4 rounded-full transition-all duration-300"
+                  className="group flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 hover:scale-105 text-white py-2 px-4 rounded-full transition-all duration-300 cursor-pointer"
                 >
                   <MessageCircle size={20} className="group-hover:scale-110 transition-transform duration-300" />
                   WhatsApp
@@ -203,7 +223,7 @@ export default function SiteHeader() {
 
                 <a
                   href="mailto:info@lebanesearc.org"
-                  className="group flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-800 hover:scale-105 text-white py-2 px-4 rounded-full transition-all duration-300"
+                  className="group flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-800 hover:scale-105 text-white py-2 px-4 rounded-full transition-all duration-300 cursor-pointer"
                 >
                   <Mail size={20} className="group-hover:scale-110 transition-transform duration-300" />
                   Email
